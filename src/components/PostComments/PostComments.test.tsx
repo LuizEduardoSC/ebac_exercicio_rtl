@@ -8,15 +8,17 @@ describe('PostComments', () => {
         const inputComentario = screen.getByTestId('input-comentario');
         const botaoEnviar = screen.getByTestId('botao-enviar');
 
-        // Primeiro comentário
+        // 1 comentário
         fireEvent.change(inputComentario, { target: { value: 'Primeiro comentário' } });
         fireEvent.click(botaoEnviar);
 
-        // Segundo comentário
+
+        // 2° comentário
         fireEvent.change(inputComentario, { target: { value: 'Segundo comentário' } });
         fireEvent.click(botaoEnviar);
 
-        // Verifica se os dois comentários foram renderizados
+
+        // Verificar se os dois comentários foram renderizados
         const comentarios = screen.getAllByTestId('comentario-item');
         expect(comentarios.length).toBe(2);
         expect(comentarios[0]).toHaveTextContent('Primeiro comentário');
